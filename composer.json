@@ -1,0 +1,15 @@
+{
+    "name": "user/excel_import",
+    "autoload": {
+        "psr-4": {
+            "User\\ExcelImport\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "brahim houari",
+            "email": "56647359+brhouari@users.noreply.github.com"
+        }
+    ],
+    "require": {}
+}
