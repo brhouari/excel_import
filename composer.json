@@ -2,7 +2,7 @@
     "name": "user/excel_import",
     "autoload": {
         "psr-4": {
-            "user\\excel_import\\": "src/"
+            "src\\": "src/"
         }
     },
     "authors": [
