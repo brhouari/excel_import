@@ -1,8 +1,11 @@
 <?php
 namespace src\Controllers;
 
-class HomeController {
-    public function index() {
-        echo "Welcome to the Home Page!";
+use src\Controllers\Controller; 
+
+class HomeController extends Controller{
+
+     public function index() {
+        $this->view('home', ['title' => 'Home Page']);
     }
 }
