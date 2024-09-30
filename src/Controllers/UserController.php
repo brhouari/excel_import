@@ -10,9 +10,9 @@ class UserController extends Controller {
         $userModel = new User();
         
         // Fetch users from the database
-        $users = $userModel->getAllUsers();
+        $data = $userModel->getAllUsers();
         
         // Pass the data to the view
-      $this->view('user', ['title' => 'User Page']);
+      $this->view('user',$data );
     }
 }

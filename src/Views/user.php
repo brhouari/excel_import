@@ -11,7 +11,7 @@
     <h1>User List</h1>
     
     <ul>
-        <?php foreach ($users as $user): ?>
+        <?php foreach ($data as $user): ?>
             <li><?php echo htmlspecialchars($user['name']); ?> - <?php echo htmlspecialchars($user['email']); ?></li>
         <?php endforeach; ?>
     </ul>
