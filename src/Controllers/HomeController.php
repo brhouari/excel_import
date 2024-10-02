@@ -9,3 +9,4 @@ class HomeController extends Controller{
         $this->view('home', ['title' => 'Home Page']);
     }
 }
+
