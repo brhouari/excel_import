@@ -3,7 +3,11 @@ namespace src\Controllers;
 
 use src\Controllers\Controller;
  
-class FileController {
+class FileController  extends Controller{
+
+    public function index() {
+        $this->view('upload_file', ['title' => 'upload']);
+    }
     public function upload() {
         // Check if the file is set in the POST request
         if(isset($_FILES['file'])) {
