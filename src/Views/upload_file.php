@@ -4,12 +4,21 @@
     <input type="file" name="file" id="file" required>
     <input type="submit" value="Upload File">
 </form> -->
+<?php use src\Helpers\UrlHelper; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
+     <!-- Link to the CSS file 
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">-->
+    <!-- app/Views/users/index.php -->
+
+<link rel="stylesheet" href="<?php echo UrlHelper::asset('css/style.css'); ?>">
+<link rel="stylesheet" href="<?php echo UrlHelper::asset('css/bootstrap.min.css'); ?>">
+
 </head>
 <body>
 
@@ -64,8 +73,9 @@
                 <td><?php echo 'status'; ?></td>
                 <td><?php echo 'created'; ?></td>
             </tr>
-        
-        
+         <!-- Link to the JS file
+    <script src="/js/app.js"></script> -->
+     <script src="<?php echo UrlHelper::asset('js/app.js'); ?>"></script>   
         </tbody>
     </table>
 </div>
