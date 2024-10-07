@@ -11,5 +11,7 @@
             "email": "56647359+brhouari@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "phpoffice/phpspreadsheet": "^2.1"
+    }
 }
