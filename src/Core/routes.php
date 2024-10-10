@@ -8,7 +8,7 @@ $router = new Router();
 $router->get('/', 'HomeController@index');$router->get('/home', 'HomeController@index');
 $router->get('/user', 'UserController@index');
 $router->get('/upload', 'FileController@index');
-//$router->post('/upload', 'FileController@upload');
+$router->post('/upload_excel', 'FileController@upload');
 
 // Handle incoming request
 $router->handleRequest();

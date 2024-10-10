@@ -38,10 +38,11 @@
     </div>
     <!-- Excel file upload form -->
     <div class="col-md-12" id="importFrm" style="display: none;">
-        <form class="row g-3" action="/upload" method="POST" enctype="multipart/form-data">
+        <form class="row g-3" action="/upload_excel" method="POST" enctype="multipart/form-data">
             <div class="col-auto">
                 <label for="fileInput" class="visually-hidden">File</label>
-                <input type="file" class="form-control" name="file" id="fileInput" />
+                <input type="file" class="form-control" name="file" accept=".xlsx,.xls" required>
+
             </div>
             <div class="col-auto">
                 <input type="submit" class="btn btn-primary mb-3" name="importSubmit" value="Import">

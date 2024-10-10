@@ -2,24 +2,36 @@
 namespace src\Models;
 
 use src\Models\Model;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet; 
+
 class FileModel {
-    public function saveFile($file) {
-        // Check if the file was uploaded without errors
-        if ($file['error'] === UPLOAD_ERR_OK) {
-            // Define the target directory and move the uploaded file
-            $uploadDir = 'uploads/';
-            $uploadFile = $uploadDir . basename($file['name']);
-            
-            if (move_uploaded_file($file['tmp_name'], $uploadFile)) {
-                // Success: The file is saved, you can store $uploadFile path in the database
-                echo "File uploaded successfully!";
-            } else {
-                // Error: Moving the file failed
-                echo "File upload failed!";
+    public function processExcel($file) {
+        // Define the temporary path where the file is uploaded
+        $filePath = $file['tmp_name'];
+
+        // Load the Excel file using PHPSpreadsheet
+        try {
+            $spreadsheet = IOFactory::load($filePath);
+            $sheet = $spreadsheet->getActiveSheet();
+
+            // Get the data (example: reading the first row)
+            $data = [];
+            foreach ($sheet->getRowIterator() as $row) {
+                $rowData = [];
+                foreach ($row->getCellIterator() as $cell) {
+                    $rowData[] = $cell->getValue();
+                }
+                $data[] = $rowData;
             }
-        } else {
-            // Error: Handle specific file upload error
-            echo "Error during file upload!";
+
+            // Process the data (for example, print it out)
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+
+        } catch (\Exception $e) {
+            echo "Error processing Excel file: " . $e->getMessage();
         }
     }
 }
