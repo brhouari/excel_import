@@ -23,4 +23,6 @@ class Model {
             echo 'Connection failed: ' . $e->getMessage();
         }
     }
+
+   
 }
