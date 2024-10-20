@@ -8,7 +8,12 @@ use src\Models\FileModel;
 class FileController  extends Controller{
 
     public function index() {
-        $this->view('upload_file', ['title' => 'upload']);
+        // Create an instance of the FileModel model
+        $FileModel = new FileModel();
+        
+        // Fetch users from the database
+        $data = $FileModel->getAllMembers();
+        $this->view('upload_file', $data);
     }
     public function upload() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {

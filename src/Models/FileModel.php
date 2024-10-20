@@ -55,4 +55,8 @@ class FileModel extends Model {
             ':STATUS'   => $rowData[4],  // Third column data (age)
         ]);
     }
+    public function getAllMembers() {
+        $stmt = $this->db->query('SELECT * FROM members');
+        return $stmt->fetchAll();
+    }
 }

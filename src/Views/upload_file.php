@@ -60,20 +60,24 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Status</th>
-                <th>Created</th>
+                
             </tr>
         </thead>
         <tbody>
+        <?php 
+               
+        foreach ($data as $members):?>
         
             <tr>
-                <td><?php echo 'id'; ?></td>
-                <td><?php echo 'first_name'; ?></td>
-                <td><?php echo 'last_name'; ?></td>
-                <td><?php echo 'email'; ?></td>
-                <td><?php echo 'phone'; ?></td>
-                <td><?php echo 'status'; ?></td>
-                <td><?php echo 'created'; ?></td>
+                <td><?php echo $members['id']; ?></td>
+                <td><?php echo $members['first_name']; ?></td>
+                <td><?php echo $members['last_name']; ?></td>
+                <td><?php echo $members['email']; ?></td>
+                <td><?php echo $members['phone']; ?></td>
+                <td><?php echo $members['status']; ?></td>
+                
             </tr>
+            <?php endforeach; ?>
          <!-- Link to the JS file
     <script src="/js/app.js"></script> -->
      <script src="<?php echo UrlHelper::asset('js/app.js'); ?>"></script>   
