@@ -15,4 +15,5 @@ class UserController extends Controller {
         // Pass the data to the view
       $this->view('user',$data );
     }
+    
 }

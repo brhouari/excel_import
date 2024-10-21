@@ -40,6 +40,36 @@ class AuthController {
         include_once '../src/views/login.php';
     }
 
+    public function register() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['name'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+
+            // Validate inputs (this is a basic example, add more validation as needed)
+            if (!empty($name) && !empty($email) && !empty($password)) {
+                // Create a new user by calling the UserModel
+                $userModel = new User();
+                $userId = $userModel->createUser($name, $email, $password);
+
+                if ($userId) {
+                    // Registration successful - Redirect or show a success message
+                    header('Location: /login');
+                    exit;
+                } else {
+                    // Handle the error (e.g., user creation failed)
+                    $error = "An error occurred. Please try again.";
+                }
+            } else {
+                // Handle validation errors
+                $error = "Please fill in all required fields.";
+            }
+        }
+
+        // Include the registration view (pass any error messages)
+        include_once '../src/views/register.php';
+    }
+
     public function logout() {
         // Logout function to destroy the session
         session_start();

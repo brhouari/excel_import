@@ -22,11 +22,31 @@ class User extends Model {
 
         if ($user) {
             // Verify the password using password_hash (assuming the password is hashed)
-            if ($password == $user['password']) {
+            /*if ($password == $user['password']) {
                 return $user;  // Return user data if authentication is successful
-            }
+            }*/
+              if (password_verify($password, $user['password'])) {
+            return true;  // Password is correct
         }
+    }
+    
+
         
         return false;  // Return false if the credentials are incorrect
+    }
+    public function createUser($name, $email, $password) {
+        // Hash the password using password_hash()
+        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+        // Insert the user into the database
+        $sql = "INSERT INTO users (name, email, password) VALUES (:name, :email, :password)";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([
+            ':name'     => $name,
+            ':email'    => $email,
+            ':password' => $hashedPassword
+        ]);
+
+        return $this->db->lastInsertId(); // Return the new user's ID
     }
 }
